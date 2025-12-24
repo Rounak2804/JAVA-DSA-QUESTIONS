@@ -8,10 +8,10 @@ class Solution {
         int count = 0;
         Arrays.sort(capacity);
         int n = capacity.length-1;
-        int left = sum;
+        
         for(int i = n;i>=0;i--){
-            if(left>capacity[i]){
-                left = left - capacity[i];
+            if(sum>capacity[i]){
+                sum = sum - capacity[i];
                 count++;
                 
             }
