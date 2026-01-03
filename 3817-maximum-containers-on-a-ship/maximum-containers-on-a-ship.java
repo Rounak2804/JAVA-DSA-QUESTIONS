@@ -4,8 +4,8 @@ class Solution {
         int i = 1;
         int container = 0;
         while(i<=space){
-            int hold = w * i;
-            if(hold<=maxWeight){
+            
+            if(w*i<=maxWeight){
                 container++;
             }
             i++;
