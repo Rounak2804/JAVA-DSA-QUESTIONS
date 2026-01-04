@@ -20,7 +20,7 @@ class Solution {
                     }
                 }
             }
-            if (count == 4 ) {
+            if (count == 4 && count < 5) {
                     sum += psum;
                 }
         }
