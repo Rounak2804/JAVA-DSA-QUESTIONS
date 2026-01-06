@@ -1,10 +1,9 @@
 class Solution {
-    public int singleNonDuplicate(int[] arr) {
-        int count = 0;
-        for(int i = 0;i<arr.length;i++){
-            count = count ^ arr[i];
+    public int singleNonDuplicate(int[] nums) {
+        int a = 0;
+        for(int i = 0;i<nums.length;i++){
+            a = a ^ nums[i];
         }
-        return count;
-      
+        return a;
     }
 }
