@@ -1,9 +1,9 @@
 class Solution {
     public boolean checkPerfectNumber(int num) {
-        int o = num;
+        
         int d1 = 0;
-        for(int i = 1;i<o;i++){
-            if(o % i == 0){
+        for(int i = 1;i<num;i++){
+            if(num % i == 0){
                 d1 = d1 + i;
             }
         }
