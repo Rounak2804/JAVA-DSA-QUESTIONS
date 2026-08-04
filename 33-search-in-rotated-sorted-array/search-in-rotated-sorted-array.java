@@ -1,80 +1,43 @@
 class Solution {
-    public int search(int[] arr, int target) {
-        // when we find a mid check arr[mid] < arr[mid+1] : we are in sorted part 
-        // Pivot : how can we find the smallest element 
+    public int search(int[] nums, int target) {
 
-        int min  = Smallest(arr);
-        int f = First(arr , target , min);
-        int s = Second(arr , target , min);
         
-       
-         if(f==-1){
-            return s;
-        }
-        else{
-            return f;
-        }
-      
+        
 
-    }
-    public int  Smallest(int arr[]){
+        
         int l = 0;
-        int r = arr.length - 1;
+        int r = nums.length - 1;
 
-        while (l < r) {
+        while(l <= r){
+            int mid = (l + r) / 2;
 
-            int mid = l + (r - l) / 2;
-            if (arr[mid] < arr[r]) {
-                r = mid;
-                // minimum will be behind the mid
-            } else if (arr[mid] > arr[r]) {
-                l = mid + 1;
-                // min will be forward to mid
+            if(nums[mid] == target) return mid;
+            
+            if (nums[l] <= nums[mid]) {
+
+                if (nums[l] <= target && target < nums[mid]) {
+                    r = mid - 1;
+                   
+                } else {
+                    l = mid + 1;
+                   
+                }
+
+            }
+            // Right half is sorted
+            else {
+
+                if (nums[mid] < target && target <= nums[r]) {
+                    l = mid + 1;
+                    
+                } else {
+                    r = mid - 1;
+                    
+                }
+
             }
         }
-        return r;
-      
+        return -1;
+        
     }
-
-    public int First(int arr[] , int target , int min){
-            int l = 0;
-            int r = min - 1;
-
-            while(l<=r){
-                int mid = (l + r)/2;
-                if(arr[mid]==target){
-                    return mid;
-                }
-                else if(arr[mid]<target){
-                    l = mid + 1;
-                }
-                else{
-                    r = mid - 1;
-                }
-               
-            }
-             return -1;
-    }
-
-    public int Second(int arr[] , int target , int min){
-            int l = min;
-            int r = arr.length -1;
-
-            while(l<=r){
-                int mid = (l + r)/2;
-                if(arr[mid]==target){
-                    return mid;
-                }
-                else if(arr[mid]<target){
-                    l = mid + 1;
-                }
-                else{
-                    r = mid - 1;
-                }
-                
-            }
-            return -1;
-    }
-
-
 }
